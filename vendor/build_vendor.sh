@@ -16,6 +16,9 @@ else
   echo "*** Unknown Architecture ***"
 fi
 
+rm -rf src
+mkdir src
+
 # Get remote library repos to build
 git submodule update --init --recursive
 
