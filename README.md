@@ -7,17 +7,21 @@
   Mac OS
   
     1) Open a terminal and install the following packages using brew
-      a) cd 
       a) brew install eigen
       b) brew install python
       c) brew install openexr
       d) brew install cmake
       
-    2) In the terminal, build the OpenCV library
+    2) In the termainl, checkout the repo
+      a) cd /your_new_repo_dir
+      b) git clone https://github.com/mveaton/test-api.git
+      
+    3) In the terminal, build the OpenCV library
       a) cd vendor
+      b) chmod 755 build_vendor.sh
       b) ./build_vendor.sh
       
-    3) In the terminal, build the executable
+    4) In the terminal, build the executable
       a) cd ..
       b) mkdir build
       c) cd build
