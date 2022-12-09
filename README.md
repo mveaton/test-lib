@@ -5,6 +5,7 @@
 
 # Build Instructions:
   Mac OS
+  
     1) Open a terminal and install the following packages using brew
       a) cd 
       a) brew install eigen
