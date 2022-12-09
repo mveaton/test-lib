@@ -26,8 +26,8 @@
       
 # Run Instructions:
 
-   1) In the terminal, run the executable
-     a) ./system_API
+    1) In the terminal, run the executable
+      a) ./system_API
       
       
       
