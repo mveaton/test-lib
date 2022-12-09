@@ -10,6 +10,8 @@ elif [[ "$arch" == "arm" ]]; then
   echo "ARM32 Architecture"
 elif [[ "$arch" == "aarch64" ]]; then
   echo "ARM64 Architecture"
+elif [[ "$arch" == "arm64" ]]; then
+  echo "ARM64 Architecture"
 else
   echo "*** Unknown Architecture ***"
 fi
@@ -40,12 +42,12 @@ cd ../..
 # Build OpenCV for IOS
 #xcode-select --install
 
-python3 opencv/platforms/apple/build_xcframework.py \
---out ./opencv-build \
---contrib opencv_contrib \
---iphoneos_archs arm64 \
---iphonesimulator_archs x86_64 \
---iphoneos_deployment_target 11.0 \
---build_only_specified_archs
+#python3 opencv/platforms/apple/build_xcframework.py \
+#--out ./opencv-build \
+#--contrib opencv_contrib \
+#--iphoneos_archs arm64 \
+#--iphonesimulator_archs x86_64 \
+#--iphoneos_deployment_target 11.0 \
+#--build_only_specified_archs
 
-cd opencv-build/iphonesimulator/build/build-x86_64-iphonesimulator/modules/objc_bindings_generator/ios/gen
+#cd opencv-build/iphonesimulator/build/build-x86_64-iphonesimulator/modules/objc_bindings_generator/ios/gen
