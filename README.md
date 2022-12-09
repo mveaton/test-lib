@@ -1,6 +1,6 @@
 # test-lib
 
-  The test-lib is a start of a C++ library (currently built as executable) for common image related code on a BeagleBone AI-64 board (Debian 11.3) and the iPhone (IOS 16). The test-lib is still in development and requires error handling, logging and many other features implemented. The repo has been built and tested on the Mac OS (v13.0) with Xcode installed.
+  The test-lib is a start of a C++ library (currently built as an executable) for common image related code on a BeagleBone AI-64 board (Debian 11.3) and the iPhone (IOS 16). The test-lib is still in development and requires error handling, logging, and many other features implemented. The repo has been built and tested on the Mac OS (v13.0) with Xcode installed.
 
 
 # Build Instructions:
