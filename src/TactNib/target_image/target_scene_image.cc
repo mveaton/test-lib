@@ -1,7 +1,7 @@
 /** ===========================================================================
  * Copyright (c) 2022 TactNib, LCC
  *
- * File Name: target_image.cc
+ * File Name: target_scene_image.cc
  * Purpose:	  Class for image of a paper target. The purpose of this class is
  *            to find the paper target within the image and score the target
  *            within the image. This class will provide the ability to preprocess
@@ -9,23 +9,22 @@
  *            image, and score the target.
  * Author:	  Michael Eaton
  *
+ * Coding Standard: https://google.github.io/styleguide/cppguide.html
+ *
  * ============================================================================*/
 
 #include <string>
-#include <opencv2/core.hpp>
 
-#include "target_image.h"
+#include "target_scene_image.h"
 #include "object_detect_strategy.h"
 #include "opencv_strategy.h"
-
-using namespace cv;
 
 namespace TactNib {
 
     //================================================
     // Default constructor
     //================================================
-    TargetImage::TargetImage()
+    TargetSceneImage::TargetSceneImage()
     {
         target_finder_strategy_ = nullptr;
     }
@@ -33,17 +32,17 @@ namespace TactNib {
     //================================================
     // Member Function: SetTargetFinderStrategy
     //================================================
-    void TargetImage::SetTargetFinderStrategy(TargetFinderStrategyType id)
+    void TargetSceneImage::SetTargetFinderStrategy(TargetFinderStrategyType id)
     {
         delete target_finder_strategy_;
 
         switch(id)
         {
             case TargetFinderStrategyType::ObjectDetect:
-                target_finder_strategy_ = new ObjectDetectStrategy(image_target_file_, image_template_file_);
+                target_finder_strategy_ = new ObjectDetectStrategy(image_scene_file_, image_target_file_);
                 break;
             case TargetFinderStrategyType::OpenCvRect:
-                target_finder_strategy_ = new OpenCvStrategy(image_target_file_, image_template_file_);
+                target_finder_strategy_ = new OpenCvStrategy(image_scene_file_, image_target_file_);
                 break;
             default:
                 break;
@@ -51,25 +50,25 @@ namespace TactNib {
     }
 
     //================================================
+    // Member Function: SetSceneImage
+    //================================================
+    void TargetSceneImage::SetSceneImage(std::string image_file)
+    {
+        image_scene_file_ = image_file;
+    }
+
+    //================================================
     // Member Function: SetTargetImage
     //================================================
-    void TargetImage::SetTargetImage(std::string image_file)
+    void TargetSceneImage::SetTargetImage(std::string image_file)
     {
         image_target_file_ = image_file;
     }
 
     //================================================
-    // Member Function: SetTemplateImage
-    //================================================
-    void TargetImage::SetTemplateImage(std::string image_file)
-    {
-        image_template_file_ = image_file;
-    }
-
-    //================================================
     // Member Function: ProcessTarget
     //================================================
-    void TargetImage::ProcessTarget()
+    void TargetSceneImage::ProcessScene()
     {
         // Find the paper target in the image
         target_finder_strategy_->ProcessImage();

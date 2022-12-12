@@ -5,6 +5,8 @@
  * Purpose:	  Test function for system API
  * Author:	  Michael Eaton
  *
+ * Coding Standard: https://google.github.io/styleguide/cppguide.html
+ *
  * All Rights Reserved.
  * NOTICE:  All information contained herein is, and remains the property of
  * TactNib, LCC and its suppliers, if any.  The intellectual and technical
@@ -16,21 +18,21 @@
  * ============================================================================*/
 
 #include <iostream>
-#include "TactNib/target_image//target_image.h"
+#include "TactNib/target_image/target_scene_image.h"
 
 int main() {
 
     std::cout << "System-API: Main!" << std::endl;
 
-    TactNib::TargetImage image;
+    TactNib::TargetSceneImage scene_image;
 
-    // Set up image for processing
-    image.SetTargetImage("../data/target_bullet_hole.jpg");
-    image.SetTemplateImage("../data/target_template_image.jpeg");
-    image.SetTargetFinderStrategy(TactNib::TargetFinderStrategyType::OpenCvRect);
+    // Set up scene image for processing
+    scene_image.SetSceneImage("../data/target_bullet_hole.jpg");
+    scene_image.SetTargetImage("../data/target_template_image.jpeg");
+    scene_image.SetTargetFinderStrategy(TactNib::TargetFinderStrategyType::OpenCvRect);
 
-    // Process image for find the desired paper target
-    image.ProcessTarget();
+    // Process scene image to find the desired paper target
+    scene_image.ProcessScene();
 
     std::cout << "End of Main" << std::endl;
     return 0;

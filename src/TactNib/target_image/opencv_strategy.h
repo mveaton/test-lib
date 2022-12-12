@@ -8,6 +8,8 @@
  *            that will use OpenCV to find the paper target.
  * Author:	  Michael Eaton
  *
+ * Coding Standard: https://google.github.io/styleguide/cppguide.html
+ *
  * ============================================================================*/
 
 #ifndef SYSTEM_API_OPENCV_STRATEGY_H
@@ -45,7 +47,7 @@ namespace TactNib {
             OpenCvStrategy(std::string, std::string);
 
         private:
-            void FindTarget() override;
+        TargetObjectImage FindTarget() override;
 
         protected:
     };

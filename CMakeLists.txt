@@ -54,8 +54,8 @@ set(CMAKE_CXX_STANDARD 20)
 # Create executable
 add_executable(system_API
                src/main.cc
-               src/TactNib/target_image/target_image.cc
-               src/TactNib/target_image/target_image.h
+        src/TactNib/target_image/target_scene_image.cc
+        src/TactNib/target_image/target_scene_image.h
         src/TactNib/target_image/target_finder_strategy.cc
         src/TactNib/target_image/target_finder_strategy.h
         src/TactNib/target_image/object_detect_strategy.cc
@@ -63,7 +63,8 @@ add_executable(system_API
         src/TactNib/target_image/opencv_strategy.cc
         src/TactNib/target_image/opencv_strategy.h
         src/TactNib/target_image/opencv_algo.cc
-        src/TactNib/target_image/opencv_algo.h src/TactNib/target_image/support.h)
+        src/TactNib/target_image/opencv_algo.h
+        src/TactNib/target_image/enum_support.h src/TactNib/target_image/target_object_image.cc src/TactNib/target_image/target_object_image.h)
 
 # link libraries
 target_link_libraries(system_API ${OpenCV_LIBS})

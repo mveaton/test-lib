@@ -7,6 +7,8 @@
  *            to be used at runtime.
  * Author:	  Michael Eaton
  *
+ * Coding Standard: https://google.github.io/styleguide/cppguide.html
+ *
  * ============================================================================*/
 
 #ifndef SYSTEM_API_TARGET_FINDER_STRATEGY_H
@@ -15,24 +17,24 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include "target_object_image.h"
 
 namespace TactNib {
 
     class TargetFinderStrategy {
         public:
             TargetFinderStrategy(std::string, std::string);
-            virtual ~TargetFinderStrategy()
-        {
-            std::cout << "Base destructor called." << std::endl;
-        }
+            virtual ~TargetFinderStrategy() {
+                std::cout << "Base destructor called." << std::endl;
+            }
             void ProcessImage();
 
         protected:
+            std::string image_scene_file_;
             std::string image_target_file_;
-            std::string image_template_file_;
 
         private:
-            virtual void FindTarget() = 0;
+            virtual TargetObjectImage FindTarget() = 0;
 
     };
 

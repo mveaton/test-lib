@@ -1,13 +1,15 @@
 /** ===========================================================================
  *
  * File Name: support.h
- * Purpose:	  Place holder for miscellaneous support functions.
+ * Purpose:	  Place holder for enumeration support functions.
  * Author:	  Michael Eaton
+ *
+ * Coding Standard: https://google.github.io/styleguide/cppguide.html
  *
  * ============================================================================*/
 
-#ifndef SYSTEM_API_SUPPORT_H
-#define SYSTEM_API_SUPPORT_H
+#ifndef SYSTEM_API_ENUM_SUPPORT_H
+#define SYSTEM_API_ENUM_SUPPORT_H
 
 
 // Template to allow "enum class" to be used in cout
@@ -17,4 +19,4 @@ std::ostream& operator<<(typename std::enable_if<std::is_enum<T>::value, std::os
     return stream << static_cast<typename std::underlying_type<T>::type>(e);
 }
 
-#endif //SYSTEM_API_SUPPORT_H
+#endif //SYSTEM_API_ENUM_SUPPORT_H
